@@ -2,28 +2,28 @@ package repository.impl;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import db.mapper.CarDbMapper;
+import db.mapper.CarBrandsDbMapper;
 import lombok.RequiredArgsConstructor;
-import model.entity.CarEntity;
-import repository.CarRepository;
+import model.entity.CarBrandEntity;
+import repository.CarBrandsRepository;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
 @Singleton
-@RequiredArgsConstructor(onConstructor_ = { @Inject })
-public class CarRepositoryImpl implements CarRepository {
+@RequiredArgsConstructor(onConstructor_ = { @Inject})
+public class CarBrandsRepositoryImpl implements CarBrandsRepository {
 
-    private final CarDbMapper mapper;
+    private final CarBrandsDbMapper mapper;
 
     @Override
-    public CompletionStage<CarEntity> findById(Long id) {
+    public CompletionStage<CarBrandEntity> findById(Long id) {
         return CompletableFuture.supplyAsync(() -> mapper.findById(id));
     }
 
     @Override
-    public CompletionStage<List<CarEntity>> findAll() {
+    public CompletionStage<List<CarBrandEntity>> findAll() {
         return CompletableFuture.supplyAsync(() -> mapper.findAll());
     }
 
@@ -33,12 +33,12 @@ public class CarRepositoryImpl implements CarRepository {
     }
 
     @Override
-    public CompletionStage<Void> insert(CarEntity entity) {
+    public CompletionStage<Void> insert(CarBrandEntity entity) {
         return CompletableFuture.runAsync(() -> mapper.insert(entity));
     }
 
     @Override
-    public CompletionStage<Void> update(CarEntity entity) {
+    public CompletionStage<Void> update(CarBrandEntity entity) {
         return CompletableFuture.runAsync(() -> mapper.update(entity));
     }
 }
