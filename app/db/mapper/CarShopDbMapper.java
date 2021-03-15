@@ -2,6 +2,7 @@ package db.mapper;
 
 import model.entity.CarForSaleEntity;
 import org.apache.ibatis.annotations.*;
+
 import java.util.List;
 
 @Mapper
@@ -32,21 +33,21 @@ public interface CarShopDbMapper {
             "milesage," +
             "price" +
             ") VALUES(" +
-            "#{entity.carBrand}," +
-            "#{entity.carModel}," +
-            "#{entity.producingDate}," +
-            "#{entity.milesage}," +
-            "#{entity.price}" +
+            "#{carBrand}," +
+            "#{carModel}," +
+            "#{producingDate}," +
+            "#{milesage}," +
+            "#{price}" +
             ")")
     void insert(CarForSaleEntity entity);
 
     @Update("UPDATE cars_shop SET " +
-            "car_brand = #{entity.carBrand}," +
-            "car_model = #{entity.carModel}," +
-            "producing_date = #{entity.producingDate}," +
-            "milesage = #{entity.milesage}," +
-            "price = #{entity.price} " +
-            "WHERE id = #{entity.id}")
+            "car_brand = #{carBrand}," +
+            "car_model = #{carModel}," +
+            "producing_date = #{producingDate}," +
+            "milesage = #{milesage}," +
+            "price = #{price} " +
+            "WHERE id = #{id}")
     void update(CarForSaleEntity entity);
 
 }

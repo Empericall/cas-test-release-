@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Data
@@ -25,5 +26,5 @@ public class CarForSaleDto {
     private Integer milesage;
 
     @ApiModelProperty("Цена")
-    private Integer price;
+    private BigDecimal price;
 }

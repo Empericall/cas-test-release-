@@ -2,11 +2,27 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-GET /api/v1/cars controllers.CarController.getById(id: java.util.Optional[java.lang.Long])
+GET  /api/v1/cars controllers.CarController.getAll
+GET  /api/v1/car controllers.CarController.getById(id: java.util.Optional[java.lang.Long])
+POST /api/v1/car controllers.CarController.save
+PUT /api/v1/car controllers.CarController.update
+DELETE /api/v1/car controllers.CarController.delete
+
+GET  /api/v1/brands controllers.CarBrandController.getAll
+GET  /api/v1/brand controllers.CarBrandController.getById(id: java.util.Optional[java.lang.Long])
+POST /api/v1/brand controllers.CarBrandController.save
+PUT /api/v1/brand controllers.CarBrandController.update
+DELETE /api/v1/brand controllers.CarBrandController.delete
+
+GET  /api/v1/models controllers.CarModelController.getAll
+GET  /api/v1/model controllers.CarModelController.getById(id: java.util.Optional[java.lang.Long])
+POST /api/v1/model controllers.CarModelController.save
+PUT /api/v1/model controllers.CarModelController.update
+DELETE /api/v1/model controllers.CarModelController.delete
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET  /assets/*file controllers.Assets.versioned(path="/public", file: Asset)
 
-GET  /docs/ controllers.Assets.at(path="/public/swagger-ui",file="index.html")
-GET  /docs/swagger.json controllers.ApiHelpController.getResources
-GET  /docs/*file controllers.Assets.at(path="/public/swagger-ui",file)
+GET  /swagger/ controllers.Assets.at(path="/public/swagger-ui", file="index.html")
+GET  /swagger/swagger.json controllers.ApiHelpController.getResources
+GET  /swagger/*file controllers.Assets.at(path="/public/swagger-ui", file)

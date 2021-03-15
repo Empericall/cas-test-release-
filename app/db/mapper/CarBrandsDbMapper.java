@@ -27,15 +27,15 @@ public interface CarBrandsDbMapper {
             "name, " +
             "country" +
             ") VALUES(" +
-            "#{entity.name}," +
-            "#{entity.country}" +
+            "#{name}," +
+            "#{country}" +
             ")")
     void insert(CarBrandEntity entity);
 
     @Update("UPDATE car_brands SET " +
-            "name = #{entity.name}," +
-            "country = #{entity.country} " +
-            "WHERE id = #{entity.id}")
+            "name = #{name}," +
+            "country = #{country} " +
+            "WHERE id = #{id}")
     void update(CarBrandEntity entity);
 
 }

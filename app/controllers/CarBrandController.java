@@ -3,13 +3,13 @@ package controllers;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import model.dto.CarForSaleDto;
+import model.dto.CarBrandDto;
 import play.libs.Json;
 import play.libs.concurrent.HttpExecutionContext;
 import play.libs.exception.ExceptionUtils;
 import play.mvc.Controller;
 import play.mvc.Result;
-import service.CarsShopService;
+import service.CarBrandsService;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -22,74 +22,71 @@ import java.util.concurrent.CompletionStage;
 @Slf4j
 @Singleton
 @RequiredArgsConstructor(onConstructor_ = { @Inject })
-@Api(value = "Car Controller", produces = "application/json")
-public class CarController extends Controller {
-
-	private final CarsShopService carsShopService;
+@Api(value = "Car Brands Controller", produces = "application/json")
+public class CarBrandController extends Controller {
+	
+	private final CarBrandsService carBrandsService;
 	private final HttpExecutionContext executionContext;
 
-	@ApiOperation(value = "Получить по ID", response = CarForSaleDto.class)
+	@ApiOperation(value = "Получить по ID", response = CarBrandDto.class)
 	public CompletionStage<Result> getById(@ApiParam(value = "ID") Optional<Long> id) {
-		return carsShopService.getById(id.get())
+		return carBrandsService.getById(id.get())
 				.thenApplyAsync(e -> ok(Json.toJson(e)), executionContext.current());
 	}
 
-	@ApiOperation(value = "Получить все позиции", response = CarForSaleDto[].class)
+	@ApiOperation(value = "Получить все позиции", response = CarBrandDto[].class)
 	public CompletionStage<Result> getAll() {
-		return carsShopService.getAll()
+		return carBrandsService.getAll()
 				.thenApplyAsync(e -> ok(Json.toJson(e)), executionContext.current());
 	}
 
 	@ApiOperation(value = "Сохранить данные")
 	@ApiImplicitParams({
 			@ApiImplicitParam(
-					value = "CarForSaleDto",
+					value = "CarBrandDto",
 					name = "body",
 					paramType = "body",
-					dataType = "model.dto.CarForSaleDto",
+					dataType = "model.dto.CarBrandDto",
 					required = true
 			)
 	})
 	public CompletionStage<Result> save() {
-		CarForSaleDto carForSale = Json.fromJson(request().body().asJson(), CarForSaleDto.class);
-		return result(carsShopService.save(carForSale));
+		CarBrandDto carForSale = Json.fromJson(request().body().asJson(), CarBrandDto.class);
+		return result(carBrandsService.save(carForSale));
 	}
 
 	@ApiOperation(value = "Обновить данные")
 	@ApiImplicitParams({
 			@ApiImplicitParam(
-					value = "CarForSaleDto",
+					value = "CarBrandDto",
 					name = "body",
 					paramType = "body",
-					dataType = "model.dto.CarForSaleDto",
+					dataType = "model.dto.CarBrandDto",
 					required = true
 			)
 	})
 	public CompletionStage<Result> update() {
-		CarForSaleDto carForSale = Json.fromJson(request().body().asJson(), CarForSaleDto.class);
-		return result(carsShopService.update(carForSale));
+		CarBrandDto carForSale = Json.fromJson(request().body().asJson(), CarBrandDto.class);
+		return result(carBrandsService.update(carForSale));
 	}
 
 	@ApiOperation(value = "Удалить данные")
 	@ApiImplicitParams({
 			@ApiImplicitParam(
-					value = "CarForSaleDto",
+					value = "CarBrandDto",
 					name = "body",
 					paramType = "body",
-					dataType = "model.dto.CarForSaleDto",
+					dataType = "model.dto.CarBrandDto",
 					required = true
 			)
 	})
 	public CompletionStage<Result> delete() {
-		CarForSaleDto carForSale = Json.fromJson(request().body().asJson(), CarForSaleDto.class);
-		return result(carsShopService.delete(carForSale));
+		CarBrandDto carForSale = Json.fromJson(request().body().asJson(), CarBrandDto.class);
+		return result(carBrandsService.delete(carForSale));
 	}
 
 	private CompletionStage<Result> result(CompletionStage<?> cs) {
 		return cs.thenApplyAsync(empty -> (Result) ok(), executionContext.current())
-				.exceptionally(e -> {
-					log.error("", e);
-					return badRequest(ExceptionUtils.getStackTrace(e));
-				});
+				.exceptionally(e -> badRequest(ExceptionUtils.getStackTrace(e)));
 	}
 }

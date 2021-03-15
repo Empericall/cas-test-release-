@@ -13,9 +13,10 @@ libraryDependencies += guice
 libraryDependencies += ws
 
 libraryDependencies += "org.projectlombok" % "lombok" % "1.18.2" % "provided"
-libraryDependencies += "io.swagger" %% "swagger-play2" % "1.6.0"
+libraryDependencies += "io.swagger" %% "swagger-play2" % "1.7.1"
 
 libraryDependencies += "com.h2database" % "h2" % "1.4.192"
+libraryDependencies += "org.postgresql" % "postgresql" % "42.2.19"
 
 libraryDependencies ++= Seq(
   "org.mybatis" % "mybatis" % "3.4.6",

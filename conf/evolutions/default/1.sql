@@ -17,11 +17,11 @@ CREATE TABLE car_brands
 CREATE TABLE cars_shop
 (
     "id"             bigserial primary key,
-    "car_brand"      integer NOT NULL references car_brands("id"),
-    "car_model"      integer NOT NULL references car_models("id"),
-    "producing_date" date    NOT NULL,
-    "milesage"       integer NOT NULL,
-    "price"          numeric NOT NULL
+    "car_brand"      integer references car_brands("id"),
+    "car_model"      integer references car_models("id"),
+    "producing_date" date,
+    "milesage"       integer not null,
+    "price"          numeric not null
 );
 
 # --- !Downs
