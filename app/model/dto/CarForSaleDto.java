@@ -7,6 +7,9 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+/**
+ * @author Emperical
+ * */
 @Data
 @ApiModel("CarForSaleDto")
 public class CarForSaleDto {

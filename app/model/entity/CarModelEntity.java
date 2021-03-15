@@ -4,6 +4,9 @@ import lombok.Data;
 
 import java.time.LocalDate;
 
+/**
+ * @author Emperical
+ * */
 @Data
 public class CarModelEntity {
     private Long id;

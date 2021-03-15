@@ -7,6 +7,9 @@ import service.impl.CarBrandsServiceImpl;
 import java.util.List;
 import java.util.concurrent.CompletionStage;
 
+/**
+ * @author Emperical
+ * */
 @ImplementedBy(CarBrandsServiceImpl.class)
 public interface CarBrandsService {
 

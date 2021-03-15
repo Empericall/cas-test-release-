@@ -8,6 +8,9 @@ import model.DataSourceProvider;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.mybatis.guice.MyBatisModule;
 
+/**
+ * @author Emperical
+ * */
 public class BatisModule extends MyBatisModule {
     @Override
     protected void initialize() {

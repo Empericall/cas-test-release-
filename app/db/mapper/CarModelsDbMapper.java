@@ -5,6 +5,9 @@ import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
+/**
+ * @author Emperical
+ * */
 @Mapper
 public interface CarModelsDbMapper {
 

@@ -6,6 +6,9 @@ import lombok.Data;
 
 import java.time.LocalDate;
 
+/**
+ * @author Emperical
+ * */
 @Data
 @ApiModel("CarModelDto")
 public class CarModelDto {

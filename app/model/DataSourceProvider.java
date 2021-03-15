@@ -8,6 +8,9 @@ import javax.inject.Provider;
 import javax.inject.Singleton;
 import javax.sql.DataSource;
 
+/**
+ * @author Emperical
+ * */
 @Singleton
 @RequiredArgsConstructor(onConstructor_ = { @Inject })
 public class DataSourceProvider implements Provider<DataSource> {

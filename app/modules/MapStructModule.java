@@ -6,6 +6,9 @@ import model.mapper.CarForSaleMapper;
 import model.mapper.CarModelMapper;
 import org.mapstruct.factory.Mappers;
 
+/**
+ * @author Emperical
+ * */
 public class MapStructModule extends AbstractModule {
 
     @Override

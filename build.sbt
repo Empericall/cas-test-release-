@@ -1,5 +1,5 @@
-name := """hanyuu"""
-organization := "fork2"
+name := """cars-shop-api"""
+organization := "emperical"
 
 version := "1.0-SNAPSHOT"
 
